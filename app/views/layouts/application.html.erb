@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inventory</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id = "main">
+<% if user_signed_in? %>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <ul class="nav">
+          <li> <%= link_to 'Logout',destroy_user_session_path,method: "delete"   %></li>
+          <li><%= link_to 'Departments Log',root_path  %></li>
+          <li><%= link_to 'Departments',departments_path   %></li>
+          <li><%= link_to 'Transactions',transactions_path  %></li>
+          <li><%=   %></li>
+          <li><%=    %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+   <% end %>
+  <div class="container">
+
+    <%= yield %>
+
+  </div>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,32 @@
+
+<div class = "hero-unit">
+<h3>Listing departments</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Total</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @departments.each do |department| %>
+      <tr>
+        <td><%= department.name %></td>
+        <td><%= department.department_total %></td>
+        <td><%= link_to 'Show', department,:class=>"btn"  %></td>
+        <td><%= link_to 'Edit', edit_department_path(department),:class=>"btn"  %></td>
+        <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Department', new_department_path,:class=>"btn"  %>
+</div>

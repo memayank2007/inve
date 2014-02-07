@@ -1,0 +1,33 @@
+<div class = "hero-unit">
+<h3>Listing transactions</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Department</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.amount %></td>
+        <td><%= transaction.date %></td>
+        <td><%= transaction.department.name %></td>
+        <td><%= link_to 'Show', transaction,:class=>"btn"  %></td>
+        <td><%= link_to 'Edit', edit_transaction_path(transaction),:class=>"btn"  %></td>
+        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transaction', new_transaction_path,:class=>"btn"  %>
+</div>

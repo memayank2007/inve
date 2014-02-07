@@ -1,0 +1,33 @@
+<div class = "hero-unit">
+
+  <table>
+    <thead>
+    <tr>
+      <th width = 300>Department</th>
+      <th width = 100>Total</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @departments.each do |department| %>
+        <tr>
+          <td width = 300>Dept Total: <%= department.name %></td>
+          <td width = 100><%= number_to_currency(department.department_total) %></td>
+
+        </tr>
+    <% end %>
+    <tr><td colspan="2"><hr></td>
+    <tr>
+    <td width = 300><b>*All Dept Transfers:</b></td>
+      <td width = 100><%=  @transactions.to_a.sum{|t| t.amount} %>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <br>
+
+</div>
