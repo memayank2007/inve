@@ -1,14 +1,15 @@
 Inventory::Application.routes.draw do
 
+   authenticated :user do
+    root :to => 'pages#home', :as => :authenticated_root
+  end
 
   devise_for :users,controllers: {sessions: "sessions"}
   devise_scope :user do
     root to: "devise/sessions#new"
   end
 
-  authenticated :user do
-    root :to => 'pages#home', :as => :authenticated_root
-  end
+   
 
   resources :transactions
 
